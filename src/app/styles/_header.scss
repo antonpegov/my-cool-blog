@@ -1,0 +1,55 @@
+.header {
+  height: 135px;
+  padding: 0 32px;
+  &-inner {
+    position: relative;
+    &-logo {
+      //background: url("../../assets/svg/logo.svg") no-repeat;
+      background-size: cover;
+      height: 60px;
+      left: 15px;
+      position: absolute;
+      top: 45px;
+      width: 285px;
+      cursor: pointer;
+    }
+    &-title {
+      position: absolute;
+      right: 0;
+      top: 50px;
+      line-height: 39px;
+      font-size: 16px;
+      letter-spacing: 1.3px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    &-address, &-contract, &-token, &-balance {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      // line-height: 39px;
+      font-size: 12px;
+      letter-spacing: 1.3px;
+      font-weight: bold;
+      .address {
+        margin-left: 5px;
+        font-family: monospace;
+        font-size: 12px;
+        cursor: copy;
+      }
+    }
+    &-contract {
+      top: 60px;
+    }
+    &-token {
+      top: 80px;
+    }
+    &-balance {
+      top: 100px;
+    }
+  }
+.container {
+  min-width: 1000px !important;
+}
+
+}
