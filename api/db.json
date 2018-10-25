@@ -3,13 +3,18 @@
     { "id": 1, "title": "Title1", "author": "typicode",  "text": "Text1" },
     { "id": 2, "title": "Title2", "author": "typicode",  "text": "Text2" },
     { "id": 3, "title": "Title3", "author": "typicode",  "text": "Text3" },
-    { "id": 4, "title": "Title4", "author": "typicode",  "text": "Text4" }
+    { "id": 4, "title": "Title4", "author": "typicode",  "text": "Text4" },
+    { "id": 5, "title": "Title5", "author": "typicode",  "text": "Text5" },
+    { "id": 6, "title": "Title6", "author": "typicode",  "text": "Text6" },
+    { "id": 7, "title": "Title7", "author": "typicode",  "text": "Text7" },
+    { "id": 8, "title": "Title8", "author": "typicode",  "text": "Text8" },
+    { "id": 9, "title": "Title9", "author": "typicode",  "text": "Text9" }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 },
-    { "id": 3, "body": "some comment", "postId": 2 },
-    { "id": 4, "body": "some comment", "postId": 3 }
+    { "id": 1, "body": "some comment", "postid": 1 },
+    { "id": 2, "body": "some comment", "postid": 1 },
+    { "id": 3, "body": "some comment", "postid": 2 },
+    { "id": 4, "body": "some comment", "postid": 3 }
   ],
   "categories": [
     { "id": 1, "name": "JavaScript", "top": true },

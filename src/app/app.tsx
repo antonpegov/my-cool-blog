@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { Store } from 'redux';
 import { Provider } from 'react-redux';
-import { Switch, Route/*, Link*/ } from 'react-router-dom';
+import { Switch, Route,/*, Link*/ 
+Redirect} from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import { History } from 'history';
 
-import ListView from './components/list-view';
-import Counter from './components/counter';
 import { categoriesActions } from './features/categories';
 import Navigation from './components/navigation';
+import { Footer } from './components/footer';
+import { postsActions } from './features/posts';
+import Posts from './features/posts/components/posts';
+import { Post } from './features/posts/components';
 
 interface Props {
   store: Store<any>;
@@ -21,7 +24,8 @@ const User = (props) => {
 
 export class App extends React.Component<Props, {}> {
   componentDidMount() {
-    this.props.store.dispatch(categoriesActions.fetchCategiries.request())
+    this.props.store.dispatch(categoriesActions.fetchCategiries.request());
+    this.props.store.dispatch(postsActions.fetchPosts.request())
   }
   render() {
     const { store, history } = this.props;
@@ -29,23 +33,19 @@ export class App extends React.Component<Props, {}> {
       <Provider store={store}>
         <ConnectedRouter history={history}>
           <div>
-          <Navigation />
-          <Switch>
-            <Route path="/" exact strict render={() => (
-              <ListView title="List of counters on '/' :" >
-                <Counter />
-                <Counter startWith={31} />
-              </ListView>
-            )}/>
-            <Route path="/page1" exact strict render={() => (
-              <ListView title="List of counters on '/page1/':" >
-                <Counter startWith={200} />
-                <Counter />
-              </ListView>
-            )}/>
-            <Route path="/page1/:username" exact strict component={User}/>
-          </Switch>
-        </div>
+            <Navigation />
+            {/* <Posts /> */}
+            <div>
+              <Switch>
+                <Route path="/" exact render={() => (<Redirect to="/posts"/>)}/>
+                <Route path="/posts" exact strict component={Posts}/>
+                <Route path="/posts/:id" exact strict component={Post}/>
+                <Route path="/page1/:username" exact strict component={User}/>
+                <Redirect from="/" exact to="/posts" />
+              </Switch>
+            </div>
+            <Footer />          
+          </div>
         </ConnectedRouter>
       </Provider>
     );

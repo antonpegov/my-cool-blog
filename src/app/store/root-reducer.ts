@@ -1,12 +1,12 @@
 import { combineReducers, Reducer } from 'redux';
-import { countersReducer } from '../features/counters';
 import { categoriesReducer } from '../features/categories';
 import { RootAction } from './root-action';
 import { StateType } from 'typesafe-actions';
+import { postsReducer } from '../features/posts';
 
 export const rootReducer: Reducer = combineReducers<RootState, RootAction>({
-  counters: countersReducer,
-  categories: categoriesReducer
+  categories: categoriesReducer,
+  posts: postsReducer
 });
 
 export type RootState = StateType<typeof rootReducer>;
