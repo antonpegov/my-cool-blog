@@ -49,10 +49,14 @@ export class Counter extends React.Component<Props, State> {
 
 }
 
+//#region Store Connection
+
 const mapStateToProps = (state: RootState) => ({});
 
-const mapActionsToProps = {
+const mapDispatchToProps = {
   takeValue: (value: number) => countersActions.add(value),
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+//#endregion
