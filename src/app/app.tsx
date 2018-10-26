@@ -12,6 +12,7 @@ import { Footer } from './components/footer';
 import { postsActions } from './features/posts';
 import Posts from './features/posts/components/posts';
 import { Post } from './features/posts/components';
+import * as config from '../config'
 
 interface Props {
   store: Store<any>;
@@ -25,7 +26,7 @@ const User = (props) => {
 export class App extends React.Component<Props, {}> {
   componentDidMount() {
     this.props.store.dispatch(categoriesActions.fetchCategiries.request());
-    this.props.store.dispatch(postsActions.fetchPosts.request())
+    this.props.store.dispatch(postsActions.fetchPosts.request({amount: config.takePosts}));
   }
   render() {
     const { store, history } = this.props;

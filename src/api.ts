@@ -8,11 +8,11 @@ export const categoryApi = {
 }
 
 export const postsApi = {
-  getPosts: (amount: number = 3, fromId?: number, ): AxiosPromise<Post[]> => 
-    axios.get(`${api}/posts?_limit=${amount}${fromId?'&id_lte='+fromId:''}`)
+  getPosts: (amount: number = 3, fromId?: number ): AxiosPromise<Post[]> => 
+    axios.get(`${api}/posts?_limit=${amount}${fromId?'&id_lte='+fromId+'&id_ne='+fromId:''}`)
 }
 
 export const commentsApi = {
-  getComments: (amount: number, forId: number, fromId?: number): AxiosPromise<Comment[]> => 
+  getComments: (amount: number = 3, forId: number, fromId?: number): AxiosPromise<Comment[]> => 
     axios.get(`${api}/posts?_limit=${amount}&postid=${forId}${fromId?'&id_lte='+fromId:''}`)
 }

@@ -1,7 +1,12 @@
 const path = require('path'),
     webpack = require('webpack'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
+    
+const COPY_FOLDERS = [
+    { from: 'src/assets', to: 'assets' },
+];
 
 module.exports = {
     entry: {
@@ -41,5 +46,6 @@ module.exports = {
         new HtmlWebpackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') }),
         new webpack.HotModuleReplacementPlugin(),
        // new ExtractTextPlugin('style.css'),
+       new CopyWebpackPlugin(COPY_FOLDERS),
     ]
 }

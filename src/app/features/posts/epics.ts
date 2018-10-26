@@ -13,7 +13,7 @@ export const fetchPostsFlow: Epic<RootAction, any, RootState> = (action$, state)
   return action$.pipe(
     filter(isActionOf(fetchPosts.request)),
     switchMap(action =>
-      from(postsApi.getPosts()).pipe(
+      from(postsApi.getPosts(action.payload.amount, action.payload.fromId)).pipe(
         map(fetchPosts.success),
         catchError(pipe(fetchPosts.failure, of))
       )
