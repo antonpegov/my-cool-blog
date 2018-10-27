@@ -1,25 +1,22 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { RootState } from '../../../store/root-reducer';
-import { postsSelectors,/*, postsActions*/ 
-postsActions} from '..';
+import { postsSelectors, postsActions} from '..';
 import { Post } from '../models';
-import { PostPreview } from './post-preview';
+import PostPreview from './post-preview';
 import * as config from '../../../../config';
 
 //#region Interfaces Section
 interface PostsProps {
   posts: Post[];
   ready: boolean;
-  loadMore: any
+  loadMore: any;
 }
-interface PostsState {};
+interface PostsState {}
 //#endregion
 
-export class Posts extends React.Component<PostsProps, PostsState> {
-  private lastPostId() {
-    return this.props.posts[this.props.posts.length-1].id
-  }
+class Posts extends React.Component<PostsProps, PostsState> {
+
   public render() {
     return !this.props.posts ? 'loading..' : (
       <React.Fragment>
@@ -28,13 +25,19 @@ export class Posts extends React.Component<PostsProps, PostsState> {
        ))}
        <div className="text-center">
         {
-          this.props.ready 
-          ? <span className="btn btn-success" onClick={this.props.loadMore.bind(this, config.takePosts, this.lastPostId())}>Load more posts</span>
+          this.props.ready
+          ? <span className="btn btn-success" onClick={this.props.loadMore.bind(this, config.takePosts, this.lastPostId())}>
+              Load more posts
+            </span>
           : <span>loading...</span>
         }
-      </div>
+        </div>
       </React.Fragment>
     );
+  }
+
+  private lastPostId() {
+    return this.props.posts[this.props.posts.length - 1].id;
   }
 }
 
@@ -45,8 +48,8 @@ const mapStateToProps = (state: RootState) => ({
 });
 const mapDispatchToProps = {
   loadMore: (amount, fromId) => {
-    return postsActions.fetchPosts.request({amount, fromId})
-  }
+    return postsActions.fetchPosts.request({amount, fromId});
+  },
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Posts);
 //#endregion

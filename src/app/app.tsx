@@ -11,7 +11,7 @@ import Navigation from './components/navigation';
 import { Footer } from './components/footer';
 import { postsActions } from './features/posts';
 import Posts from './features/posts/components/posts';
-import { Post } from './features/posts/components';
+import Post from './features/posts/components/post';
 import * as config from '../config'
 
 interface Props {

@@ -7,6 +7,19 @@
     {
       "type": "node",
       "request": "launch",
+      "cwd": "${workspaceRoot}\\api",
+      "name": "Launch API via NPM",
+      "outputCapture": "std",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "run-script",
+        "debug"
+      ],
+      "port": 9229
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Launch Server",
       "program": "${workspaceFolder}/server.js"
     },

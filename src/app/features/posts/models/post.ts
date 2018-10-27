@@ -1,8 +1,9 @@
-import { Comment } from './comment'
+import { Comment } from './comment';
 
 export interface Post {
-  id: number
-  title: string
-  text: boolean
-  comments: Comment[]
+  id: number;
+  title: string;
+  text: boolean;
+  comments: Comment[];
+  commentsReady: boolean;
 }

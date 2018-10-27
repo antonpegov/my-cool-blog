@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Post } from '../models';
+import { Link } from 'react-router-dom';
 
 //#region Interfaces Section
 interface PostPreviewProps {
@@ -8,13 +9,15 @@ interface PostPreviewProps {
 interface PostPreviewState {};
 //#endregion
 
-export class PostPreview extends React.Component<PostPreviewProps, PostPreviewState> {
+class PostPreview extends React.Component<PostPreviewProps, PostPreviewState> {
   public render(): JSX.Element {
     return (
       <React.Fragment>
-        <h4>{this.props.post.title}</h4>
+        <Link to={`/posts/${this.props.post.id}`}>{this.props.post.title}</Link>
         <p>{this.props.post.text}</p>
       </React.Fragment>
     );
   }
 }
+
+export default PostPreview;

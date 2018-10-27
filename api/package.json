@@ -6,6 +6,7 @@
   "author": "Anton Pegov <antonpegov@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "debug": "node --inspect-brk index.js"
   }
 }

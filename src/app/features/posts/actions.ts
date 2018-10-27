@@ -5,10 +5,10 @@ export const fetchPosts = createAsyncAction(
   'posts/FETCH_POSTS_REQUEST',
   'posts/FETCH_POSTS_SUCCESS',
   'posts/FETCH_POSTS_FAILURE'
-)<{amount: number|undefined, fromId?: number}, {data: Post[]}, Error>();
+)<{amount: number|undefined; fromId?: number; toId?: number}, {data: Post[]}, Error>();
 
 export const fetchComments = createAsyncAction(
   'posts/FETCH_COMMENTS_REQUEST',
   'posts/FETCH_COMMENTS_SUCCESS',
   'posts/FETCH_COMMENTS_FAILURE'
-)<{amount: number, forId: number, fromId?: number}, {data: Comment[]}, Error>();
+)<{amount: number|undefined; forId: number; fromId?: number}, {data: {comments: Comment[]; postid: number}}, Error>();

@@ -5,7 +5,7 @@ import Category from './models/category';
 
 export type Action = ActionType<typeof categoriesActions>;
 export type State = {
-  readonly activeId: number;
+  readonly activeId: number|undefined;
   readonly list: Category[];
   readonly ready: boolean;
 };
