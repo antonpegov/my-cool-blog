@@ -13,7 +13,7 @@
     "build": "webpack",
     "start:app": "npm run build && node server.js",
     "start:api": "npm start --prefix ./api",
-    "start": "npm run start:app && npm run start:api"
+    "start": "concurrently --kill-others \"npm run start:app\" \"npm run start:api\""
   },
   "dependencies": {
     "axios": "^0.18.0",
