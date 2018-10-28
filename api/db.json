@@ -1,10 +1,10 @@
 {
   "categories": [
-    { "id": 1, "name": "JavaScript", "top": true },
-    { "id": 2, "name": "JQuery", "top": false },
+    { "id": 1, "name": "JavaScript", "color": "#4BB92F" },
+    { "id": 2, "name": "JQuery", "color": "#ff8700" },
     { "id": 3, "name": "CSS" },
-    { "id": 4, "name": "Angular", "top": true },
-    { "id": 5, "name": "React", "top": true }
+    { "id": 4, "name": "Angular", "color": "#0078ff" },
+    { "id": 5, "name": "React", "color": "#8d00ff" }
   ],
   "posts": [
     {

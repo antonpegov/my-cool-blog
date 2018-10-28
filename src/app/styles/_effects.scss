@@ -1,5 +1,4 @@
 // ============ ROTATION ==============
-
 @-webkit-keyframes rotating /* Safari and Chrome */ {
   from {
     -webkit-transform: rotate(0deg);
@@ -34,4 +33,45 @@
   -ms-animation: rotating 60s linear infinite;
   -o-animation: rotating 60s linear infinite;
   animation: rotating 60s linear infinite;
+}
+// ============ SLIDE ==============
+@-webkit-keyframes slide-down {
+  from {
+      -webkit-transform:translateY(-100%);
+      transform:translateY(-100%);
+ }
+  to {
+      -webkit-transform:translateY(0%);
+      transform:translateY(0%);
+ }
+}
+@keyframes slide-down {
+  from {
+      -webkit-transform:translateY(-100%);
+      transform:translateY(-100%);
+ }
+  to {
+      -webkit-transform:translateY(0%);
+      transform:translateY(0%);
+ }
+}
+@-webkit-keyframes slide-up {
+  from {
+      -webkit-transform:translateY(0%);
+      transform:translateY(0%);
+ }
+  to {
+      -webkit-transform:translateY(-100%);
+      transform:translateY(-100%);
+ }
+}
+@keyframes slide-up {
+  from {
+      -webkit-transform:translateY(0%);
+      transform:translateY(0%);
+ }
+  to {
+      -webkit-transform:translateY(-100%);
+      transform:translateY(-100%);
+ }
 }

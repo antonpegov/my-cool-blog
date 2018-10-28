@@ -1,0 +1,37 @@
+/*=========================================================
+	RESPONSIVE
+===========================================================*/
+@media only screen and (max-width: 767px) {
+  .page-header h1 {
+    font-size: 28px;
+  }
+  .post.post-row .post-img {
+      width: 100%;
+      float: none;
+  }
+  .post.post-row .post-body {
+      margin-left: 0px;
+  }
+  .post.post-row .post-meta {
+      margin-top: 15px;
+  }
+  .post.post-row .post-body p {
+      display:none;
+  }  
+}
+@media only screen and (max-width: 992px) {
+  .nav-menu {
+    li a {
+      box-shadow: none;
+      height: 10px;
+      left: -40px;
+      margin: 20px;
+      padding: 0 !important;
+      top: -15px;
+      transition: 0.2s color;
+    }
+    li:first-child a {
+      border-left: none;
+    }
+  }
+}
