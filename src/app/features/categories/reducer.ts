@@ -42,5 +42,5 @@ export default combineReducers<State, Action>({
       default:
         return state;
     }
-  }
+  },
 });

@@ -10,9 +10,11 @@ interface Props {
 }
 
 export class NavigationItem extends React.Component<Props, any> {
-
+  public liStyle = this.props.category
+    ? {boxShadow: `0px -5px 0px 0px ${this.props.category.color} inset`}
+    : {};
   public render = () => (
-    <li className="nav-item">
+    <li className="nav-item" style={this.liStyle}>
       <Link className="nav-link" to={`/posts${this.props.category ? '?cat=' + this.props.category.id : ''}`} onMouseDown={this.handleClick}>
         {this.props.name}
       </Link>

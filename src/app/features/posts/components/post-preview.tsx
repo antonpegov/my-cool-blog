@@ -26,6 +26,7 @@ class PostPreview extends React.Component<PostPreviewProps, PostPreviewState> {
             <Link to={`/posts?cat=${this.props.post.categoryid}`} className="post-category" style={{background: category.color}}>
               {category.name}
             </Link>
+            <span className="post-date">March 27, 2018</span>
           </div>
           <Link to={`/posts/${this.props.post.id}`} className="post-title">{this.props.post.title}</Link>
           <p className="post-text">{this.props.post.text}</p>

@@ -21,16 +21,19 @@
 }
 @media only screen and (max-width: 992px) {
   .nav-menu {
-    li a {
-      box-shadow: none;
-      height: 10px;
-      left: -40px;
-      margin: 20px;
-      padding: 0 !important;
-      top: -15px;
-      transition: 0.2s color;
+    li  {
+      box-shadow: none !important; 
+      a {
+        box-shadow: none;
+        height: 10px;
+        left: -40px;
+        margin: 20px;
+        padding: 0 !important;
+        top: -15px;
+        transition: 0.2s color;
+      }
     }
-    li:first-child a {
+    &:first-child a {
       border-left: none;
     }
   }

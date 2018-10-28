@@ -50,15 +50,20 @@ class PostCmp extends React.Component<PostProps & RouteComponentProps, PostState
     return !this.post ? <Spinner /> : (
       <div className="section">
         <div className="container">
-          <div className="main-post">
+          <div className="main-post mb-4">
             {this.post.text}
           </div>
-        </div>
-        <div className="post-comments">
-          {this.post.comments && this.post.comments.length > 0
-            ? this.post.comments.map((comment: Comment) => <CommentCmp key={comment.id} comment={comment}/>)
-            : <span>;)</span>
-          }
+          <div className="section-row">
+            <div className="section-title">
+              <h2>Comments</h2>
+            </div>
+            <div className="post-comments">
+              {this.post.comments && this.post.comments.length > 0
+                ? this.post.comments.map((comment: Comment) => <CommentCmp key={comment.id} comment={comment}/>)
+                : <span>;)</span>
+              }
+            </div>
+          </div>
         </div>
         <div className="text-center">
         {

@@ -6,7 +6,7 @@ import { Switch, Route, Redirect} from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 import { History } from 'history';
 import { categoriesActions } from './features/categories';
-import { Footer } from './components/footer';
+import Footer from './components/footer';
 import { postsActions } from './features/posts';
 import Navigation from './components/navigation';
 import Posts from './features/posts/components/posts';
