@@ -8,8 +8,8 @@ interface LogoState {}
 class Logo extends React.Component<LogoProps, LogoState> {
   public render(): JSX.Element {
     return (
-      <div className="navbar-logo">
-        <Link to="/" className="logo">
+      <div className="logo">
+        <Link to="/" className="logo-link">
           <img src="./assets/logo.png" alt="" />
         </Link>
       </div>

@@ -23,9 +23,10 @@ module.exports = {
     },
     module: {
         rules: [
-            // {
-            //     test: /bootstrap\/dist\/js\/umd\//, use: 'imports-loader?jQuery=jquery',
-            // },
+            {
+                test: /\.(jpe|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
+                loader: 'file-loader'
+            },
             { 
                 test: /\.js$/, 
                 loader: "source-map-loader",

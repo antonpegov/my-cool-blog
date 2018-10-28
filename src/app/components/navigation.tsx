@@ -20,7 +20,7 @@ class Navigation extends React.Component<Props, {}> {
       <header id="header">
         <nav id="nav" className="navbar navbar-expand-lg navbar-light">
           <div id="nav-fixed" className="slide-down">
-            <div className="container d-flex">
+            <div className="container">
               <a className="navbar-brand" href="#">
                 <Logo />
               </a>
@@ -47,8 +47,8 @@ class Navigation extends React.Component<Props, {}> {
                   ))}
                 </ul>
               </div>
-            </div>
             <NavigationButtons />
+            </div>
           </div>
         </nav>
       </header>
