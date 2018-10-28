@@ -6,8 +6,11 @@ import * as config from '../../../../config';
 import { connect } from 'react-redux';
 import { Comment, Post } from '../models';
 import { Comment as CommentCmp } from '../components';
+import Spinner from '../../../components/spinner';
 
 interface PostProps {
+  activatePost: (post: Post) => void;
+  activePost: Post|null;
   postsReady: boolean;
   posts: Post[];
   loadComments: (amount: number|undefined, forId: number, fromId?: number) => void;
@@ -23,10 +26,12 @@ class PostCmp extends React.Component<PostProps & RouteComponentProps, PostState
   private post: Post|undefined = undefined;               // copy of post taken from store
 
   public render(): JSX.Element {
-    // every time store uptates, render function rerenders its component
-    // and here we can check for our post in the store and fetch more posts if needed
     this.post = this.props.posts ? this.props.posts.find((item) => item.id === this.postId) : undefined;
     if (this.post) {
+      // update active post in store
+      if (!this.props.activePost || this.props.activePost.id !== this.post.id) {
+        this.props.activatePost(this.post);
+      }
       // when our post is just loaded, it has no comments, so initializing first request here if its already not in progress
       if (!this.post.comments && this.post.commentsReady === undefined) {
         this.props.loadComments(config.takeComments, this.post.id);
@@ -38,27 +43,30 @@ class PostCmp extends React.Component<PostProps & RouteComponentProps, PostState
       }
     }
 
-    return !this.post ? <span className="loading">'Loading...'</span> : (
-      <article className="post">
-        <header>{this.post.title}</header>
-        <section className="post-body">{this.post.text}</section>
-        <section className="post-comments">
+    return !this.post ? <Spinner /> : (
+      <div className="section">
+        <div className="container">
+          <div className="main-post">
+            {this.post.text}
+          </div>
+        </div>
+        <div className="post-comments">
           {this.post.comments && this.post.comments.length > 0
             ? this.post.comments.map((comment: Comment) => <CommentCmp key={comment.id} comment={comment}/>)
-            : <span>no comments</span>
+            : <span>;)</span>
           }
-        </section>
+        </div>
         <div className="text-center">
         {
-          this.post.commentsReady /*&& !this.requestingComments*/
+          this.post.commentsReady
           ? <span className="btn btn-success"
                 onClick={this.props.loadComments.bind(this, config.takeComments, this.postId, this.lastCommentId())}>
               Load more comments
             </span>
-          : <span>loading...</span>
+          : <Spinner />
         }
         </div>
-      </article>
+      </div>
     );
   }
 
@@ -77,6 +85,7 @@ class PostCmp extends React.Component<PostProps & RouteComponentProps, PostState
 //#region Store Connection
 
 const mapStateToProps = (state: RootState) => ({
+  activePost: postsSelectors.getActivePost(state.posts),
   postsReady: postsSelectors.getReadyStatus(state.posts),
   posts: postsSelectors.getPosts(state.posts),
 });
@@ -86,6 +95,9 @@ const mapDispatchToProps = {
   },
   loadPosts: (amount: number|undefined, fromId: number, toId) => {
     return postsActions.fetchPosts.request({amount, fromId, toId});
+  },
+  activatePost: (post: Post) => {
+    return postsActions.selectPost(post);
   },
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PostCmp);

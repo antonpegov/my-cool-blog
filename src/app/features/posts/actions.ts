@@ -1,4 +1,4 @@
-import { createAsyncAction } from 'typesafe-actions';
+import { createAsyncAction, createAction } from 'typesafe-actions';
 import { Post, Comment } from './models';
 
 export const fetchPosts = createAsyncAction(
@@ -12,3 +12,7 @@ export const fetchComments = createAsyncAction(
   'posts/FETCH_COMMENTS_SUCCESS',
   'posts/FETCH_COMMENTS_FAILURE'
 )<{amount: number|undefined; forId: number; fromId?: number}, {data: {comments: Comment[]; postid: number}}, Error>();
+
+export const selectPost = createAction('posts/SELECT_POST', resolve => {
+  return (post: Post|null) => resolve(post);
+});

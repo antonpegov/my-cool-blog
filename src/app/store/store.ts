@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { /*createBrowserHistory,*/ createHashHistory } from 'history';
 import { logger } from 'redux-logger';
 import { rootReducer, RootState } from './root-reducer';
-import { connectRouter, routerMiddleware as createRouterMiddleware } from 'connected-react-router'
+import { connectRouter, routerMiddleware as createRouterMiddleware } from 'connected-react-router';
 import { createEpicMiddleware } from 'redux-observable';
 import { rootEpic } from './root-epic';
 
@@ -14,7 +14,6 @@ const composeEnhancers = (
 export const epicMiddleware = createEpicMiddleware();
 export const browserHistory = createHashHistory();
 export const routerMiddleware = createRouterMiddleware(browserHistory);
-
 
 function configureStore(initialState?: RootState) {
 
@@ -28,9 +27,9 @@ function configureStore(initialState?: RootState) {
   const enhancer = composeEnhancers(
     applyMiddleware(...middlewares)
   );
-  
+
   // create store
-  const store = createStore(
+  const _store = createStore(
     connectRouter(browserHistory)(rootReducer),
     enhancer
     // applyMiddleware(epicMiddleware)
@@ -38,7 +37,7 @@ function configureStore(initialState?: RootState) {
   );
   // apply epics after store already created
   epicMiddleware.run(rootEpic);
-  return store;
+  return _store;
 }
 
 // pass an optional param to rehydrate state on app start

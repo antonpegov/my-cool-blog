@@ -5,10 +5,12 @@ import { Post, Comment } from './models';
 
 export type Action = ActionType<typeof postsActions>;
 export type State = {
+  readonly activePost: Post|null;
   readonly list: Post[];
   readonly ready: boolean;
 };
 export const initialState: State = {
+  activePost: null,
   list: [],
   ready: false,
 };
@@ -48,6 +50,14 @@ export default combineReducers<{}, Action>({
         return false;
       case getType(postsActions.fetchPosts.success):
         return true;
+      default:
+        return state;
+    }
+  },
+  activePost : (state = initialState.activePost, action: Action) => {
+    switch (action.type) {
+      case getType(postsActions.selectPost):
+        return action.payload;
       default:
         return state;
     }

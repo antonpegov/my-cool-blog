@@ -1,4 +1,50 @@
 /*=========================================================
+	HEADER
+===========================================================*/
+.page-header {
+  position: relative;
+  margin: 0;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background-color: #fbfbfd;
+  border-bottom: 2px solid #F4f4f9;
+  .background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-position: center;
+    background-size: cover;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(33, 38, 49, 0.3)), to(transparent));
+      background-image: linear-gradient(to top, rgba(33, 38, 49, 0.3) 0%, transparent 100%);
+    }
+  }
+  h1 {
+    text-transform: capitalize;
+    margin-bottom: 0px;
+  }
+  .post-meta {
+    margin: 15px 0px;
+    .post-date {
+      color: #eceef2;
+    }
+  }
+}
+#post-header.page-header {
+  padding-top: 120px;
+  h1 {
+    color: #FFF;
+  }
+}
+/*=========================================================
 	POST
 ===========================================================*/
 /*----------------------------*\
@@ -14,31 +60,7 @@
     }
     img {
       width: 100%;
-    }
-  }
-  .post-meta {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    .post-category {
-      font-size: 13px;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      font-weight: 600;
-      border-radius: 2px;
-      margin-right: 15px;
-      color: #FFF;
-      background-color: #76787d;
-      -webkit-transition: 0.2s opacity;
-      transition: 0.2s opacity;
-      &:hover, &:focus {
-        text-decoration: none;
-        opacity: 0.9;
-      }
-    }
-    .post-date {
-      font-size: 13px;
-      font-weight: 600;
-    }
+    }  
   }
   .post-title {
     font-size: 16px;
@@ -52,6 +74,30 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: pre-wrap;
+  }
+}
+.post-meta {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  .post-category {
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    font-weight: 600;
+    border-radius: 2px;
+    margin-right: 15px;
+    color: #FFF;
+    background-color: #76787d;
+    -webkit-transition: 0.2s opacity;
+    transition: 0.2s opacity;
+    &:hover, &:focus {
+      text-decoration: none;
+      opacity: 0.9;
+    }
+  }
+  .post-date {
+    font-size: 13px;
+    font-weight: 600;
   }
 }
 .post-tags li {

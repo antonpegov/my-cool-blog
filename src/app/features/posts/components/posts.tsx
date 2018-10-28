@@ -7,9 +7,12 @@ import PostPreview from './post-preview';
 import * as config from '../../../../config';
 import { categoriesSelectors } from '../../categories';
 import Category from '../../categories/models/category';
+import Spinner from '../../../components/spinner';
 
 //#region Interfaces Section
 interface PostsProps {
+  activePost: Post|null;
+  activatePost: (post: Post|null) => void;
   categories: Category[];
   loadMore: any;
   posts: Post[];
@@ -21,7 +24,11 @@ interface PostsState {}
 class Posts extends React.Component<PostsProps, PostsState> {
 
   public render() {
-    return !this.props.posts ? 'loading..' : (
+    // remove active post from store
+    if (this.props.activePost) {
+      this.props.activatePost(null);
+    }
+    return !this.props.posts ? <Spinner /> : (
       <div className="section">
         <div className="container">
           <div className="row">
@@ -37,7 +44,7 @@ class Posts extends React.Component<PostsProps, PostsState> {
               ? <span className="btn btn-success" onClick={this.props.loadMore.bind(this, config.takePosts, this.lastPostId())}>
                   Load more posts
                 </span>
-              : <span>loading...</span>
+              : <Spinner />
             }
           </div>
         </div>
@@ -52,6 +59,7 @@ class Posts extends React.Component<PostsProps, PostsState> {
 
 //#region Store Connection
 const mapStateToProps = (state: RootState) => ({
+  activePost: postsSelectors.getActivePost(state.posts),
   posts: postsSelectors.getPosts(state.posts),
   ready: postsSelectors.getReadyStatus(state.posts),
   categories: categoriesSelectors.getCategories(state.categories),
@@ -59,6 +67,9 @@ const mapStateToProps = (state: RootState) => ({
 const mapDispatchToProps = {
   loadMore: (amount, fromId) => {
     return postsActions.fetchPosts.request({amount, fromId});
+  },
+  activatePost: (post: Post) => {
+    return postsActions.selectPost(post);
   },
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Posts);
