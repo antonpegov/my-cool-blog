@@ -1,11 +1,8 @@
 import { createAction, createAsyncAction } from 'typesafe-actions';
 import Category from './models/category';
 
-const
-  SET_ACTIVE = 'categiries/SET_ACTIVE';
-
-export const setActive = createAction(SET_ACTIVE, resolve => {
-  return (id: number|undefined) => resolve(id);
+export const setActive = createAction('categiries/SET_ACTIVE', resolve => {
+  return (id: number|null) => resolve(id);
 });
 
 export const fetchCategiries = createAsyncAction(

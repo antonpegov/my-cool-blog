@@ -15,7 +15,7 @@ interface Props {
   activeCategoryId: number;
   activePost: Post|null;
   categories: Category[];
-  selectCategory: (id: number|undefined) => void;
+  selectCategory: (id: number|null) => void;
 }
 
 class Navigation extends React.Component<Props, {}> {
@@ -96,7 +96,7 @@ const mapStateToProps = (state: RootState) => ({
   activePost: postsSelectors.getActivePost(state.posts),
 });
 const mapDispatchToProps = {
-  selectCategory: (id: number|undefined) => categoriesActions.setActive(id),
+  selectCategory: (id: number|null) => categoriesActions.setActive(id),
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
 

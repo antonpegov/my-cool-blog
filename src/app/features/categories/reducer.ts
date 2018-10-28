@@ -5,14 +5,14 @@ import Category from './models/category';
 
 export type Action = ActionType<typeof categoriesActions>;
 export type State = {
-  readonly activeId: number|undefined;
+  readonly activeId: number|null;
   readonly list: Category[];
   readonly ready: boolean;
 };
 export const initialState: State = {
-  activeId: 0,
+  activeId: null,
   list: [],
-  ready: false
+  ready: false,
 };
 
 export default combineReducers<State, Action>({
@@ -28,9 +28,9 @@ export default combineReducers<State, Action>({
     switch (action.type) {
       case getType(categoriesActions.fetchCategiries.success):
         return action.payload.data;
-      case getType(categoriesActions.fetchCategiries.request):
-        debugger;
-        return [];
+      // case getType(categoriesActions.fetchCategiries.request):
+      //   debugger;
+      //   return [];
       default:
         return state;
     }

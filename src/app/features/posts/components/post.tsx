@@ -25,6 +25,10 @@ class PostCmp extends React.Component<PostProps & RouteComponentProps, PostState
   private postId = +(this.props.match.params as any).id;  // id recieved from URL
   private post: Post|undefined = undefined;               // copy of post taken from store
 
+  public componentDidMount() {
+    window.scrollTo(70, 70);
+  }
+
   public render(): JSX.Element {
     this.post = this.props.posts ? this.props.posts.find((item) => item.id === this.postId) : undefined;
     if (this.post) {
