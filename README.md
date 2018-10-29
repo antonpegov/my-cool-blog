@@ -2,7 +2,7 @@
 
 # My Cool Blog 
 
-### Build with React, gathered using Webpack
+### Built with React, gathered using Webpack
 
 ## How to Run it locally:
 
@@ -24,15 +24,15 @@
 
 * Typescript v.3 - beacose type safe rules
 * React v.16 - just for fun
-* Redux v.4 - to look serious
+* Redux v.4 - to look more serious
 * Typesafe Actions v.2 - for cleaner redux-related code
-* Webpack v.4 - beacose how to live without it
+* Webpack v.4 - how to live without it?
 
 ## Future plans:
 
 * Move markup on Pug and Stylus
 * Finish with category sorting
-* Implement normal backend with Koa and typescript
+* Implement normal backend with Koa and Typescript
 * Add admin part to enter posts
 * Implement user authentication and posts commenting
 

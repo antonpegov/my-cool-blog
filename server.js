@@ -4,7 +4,7 @@ const
   webpackConfig = require('./webpack.config.js'),
   compiler = webpack(webpackConfig),
   port = process.env.PORT || '4000',
-  staticMw = require('koa-static')('./dist/'),
+  staticMw = require('koa-static')('./docs/'),
   devMw = require('koa-webpack-dev-middleware')(compiler, {
     noInfo: true, 
     publicPath: webpackConfig.output.publicPath, 
