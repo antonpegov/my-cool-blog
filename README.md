@@ -1,8 +1,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# Amizing Blog 
+# My Cool Blog 
 
-### Build with React, gathered with Webpack
+### Build with React, gathered using Webpack
 
 ## How to Run it locally:
 
@@ -22,11 +22,19 @@
 
 ## Technology used:
 
-* Typescript v.3.1.3 - beacose types safe rules
+* Typescript v.3 - beacose type safe rules
 * React v.16 - just for fun
 * Redux v.4 - to look serious
-* Typesafe actions v.2.0.1 - for cleaner redux-related code
-* Webpack v.4 - beacose how to live without him
+* Typesafe Actions v.2 - for cleaner redux-related code
+* Webpack v.4 - beacose how to live without it
 
-Based on my brilliant [React starter](https://github.com/antonpegov/react-ts-webpack)
+## Future plans:
+
+* Move markup on Pug and Stylus
+* Finish with category sorting
+* Implement normal backend with Koa and typescript
+* Add admin part to enter posts
+* Implement user authentication and posts commenting
+
+### Based on my brilliant [React starter](https://github.com/antonpegov/react-ts-webpack)
 
